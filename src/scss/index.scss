@@ -125,6 +125,14 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+  &::after,
+  &::before {
+    box-sizing: border-box;
+  }
+}
+
 @import "variables";
 @import "functions";
 @import "cube";
