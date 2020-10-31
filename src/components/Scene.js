@@ -13,17 +13,17 @@ export const Scene = ({ children }) => {
     }
   }, [wheelFired])
 
-  const handleWheel = e => {
-    e.preventDefault()
-    e.stopPropagation()
+  const handleWheel = event => {
+    event.preventDefault()
+    event.stopPropagation()
     if (!wheelFired) {
       setWheelFired(true)
       // Scroll Up
-      if (e.deltaY > 0 && currentLayerIndex - 1 >= 0) {
+      if (event.deltaY > 0 && currentLayerIndex - 1 >= 0) {
         setCurrentLayerIndex(currentLayerIndex - 1)
       }
       // Scroll down
-      if (e.deltaY < 0 && currentLayerIndex + 1 <= maxLayer) {
+      if (event.deltaY < 0 && currentLayerIndex + 1 <= maxLayer) {
         setCurrentLayerIndex(currentLayerIndex + 1)
       }
     }
