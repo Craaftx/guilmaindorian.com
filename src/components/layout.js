@@ -7,10 +7,12 @@
 
 import React from "react"
 import "../scss/index.scss"
+import CustomCursor from "./CustomCursor"
 
 const Layout = ({ children }) => {
   return (
     <>
+      <CustomCursor />
       <div
         style={{
           margin: `0 auto`,
