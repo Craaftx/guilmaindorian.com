@@ -1,0 +1,66 @@
+body {
+  background: #000;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  perspective: 800px;
+  perspective-origin: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .layer {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    transition: 400ms;
+    transition-timing-function: ease-in;
+    &.previous {
+      transform: translateZ(100vh);
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.active {
+      transform: translateZ(0vh);
+      display: flex;
+      opacity: 1;
+    }
+    &.next {
+      transform: translateZ(-100vh);
+      display: flex;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.layer-0 {
+  background: purple;
+}
+
+.layer-1 {
+  background: blue;
+}
+
+.layer-2 {
+  background: red;
+}
+
+.layer-3 {
+  background: yellowgreen;
+}
