@@ -15,16 +15,17 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-sass`,
       options: {
-        fonts: [
-          {
-            family: `Inter`,
-            variants: [`400`, `500`, `800`],
-          },
-        ],
+        implementation: require("sass"),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Inter\:400,500,800`],
+        display: "swap",
       },
     },
     {
