@@ -1,31 +1,17 @@
-body {
-  background: #000;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
 .scene {
   position: relative;
   perspective: 800px;
   perspective-origin: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   .layer {
     position: absolute;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: 100%;
     display: none;
     transition: 400ms;
     transition-timing-function: ease-in;
@@ -47,20 +33,4 @@ body {
       pointer-events: none;
     }
   }
-}
-
-.layer-0 {
-  background: purple;
-}
-
-.layer-1 {
-  background: blue;
-}
-
-.layer-2 {
-  background: red;
-}
-
-.layer-3 {
-  background: yellowgreen;
 }
