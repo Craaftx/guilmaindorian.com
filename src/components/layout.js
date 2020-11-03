@@ -11,10 +11,9 @@ import CustomCursor from "./CustomCursor"
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <CustomCursor />
+    <CustomCursor>
       <main>{children}</main>
-    </>
+    </CustomCursor>
   )
 }
 

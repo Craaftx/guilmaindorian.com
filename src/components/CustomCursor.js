@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react"
+import { CursorProvider } from "../utils/useCursor"
 
 const lerp = (v0, v1, t) => {
   return v0 * (1 - t) + v1 * t
 }
 
-const CustomCursor = () => {
+const CustomCursor = ({ children }) => {
   const cursorPointer = useRef()
   const cursorCircle = useRef()
 
@@ -48,10 +49,14 @@ const CustomCursor = () => {
   }, [])
 
   return (
-    <>
+    <CursorProvider
+      cursorCircleRef={cursorCircle}
+      cursorPointerRef={cursorPointer}
+    >
       <div className="cursor cursor--pointer" ref={cursorPointer} />
       <div className="cursor cursor--circle" ref={cursorCircle} />
-    </>
+      {children}
+    </CursorProvider>
   )
 }
 
