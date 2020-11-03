@@ -1,12 +1,5 @@
-@function alphaRandom() {
-  @return random(1000) * 0.001;
-}
-
-@function stars($s, $max-area, $min-area: 0, $star-size: 0) {
-  $stars: #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px
-    0 #{$star-size}px rgba(255, 255, 255, alphaRandom());
-  @for $i from 1 to $s {
-    $stars: "#{$stars} , #{$min-area + random($max-area)}px #{$min-area + random($max-area)}px 0 #{$star-size}px rgba(255,255,255, #{alphaRandom()})";
-  }
-  @return unquote($stars);
-}
+$cube-background: #313149;
+$cube-border: #313149;
+$cube-inside: #101d2e;
+$cube-inside-border: rgba(255, 255, 255, 0.8);
+$cube-d-letter-border: #ff9800;
