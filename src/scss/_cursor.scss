@@ -1,13 +1,17 @@
 html,
 a {
-  cursor: none;
+  @media (min-width: 560px) {
+    cursor: none;
+  }
 }
 
 .cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  pointer-events: none;
+  @media (min-width: 560px) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
 }
 
 .cursor--pointer {
