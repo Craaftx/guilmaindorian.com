@@ -1,6 +1,6 @@
 import React, { cloneElement, useEffect, useState } from "react"
 
-export const Scene = ({ children }) => {
+export const Scene = ({ children, sceneRef }) => {
   const [currentLayerIndex, setCurrentLayerIndex] = useState(0)
   const [wheelFired, setWheelFired] = useState(false)
 
@@ -45,7 +45,7 @@ export const Scene = ({ children }) => {
   })
 
   return (
-    <div className="scene" onWheel={e => handleWheel(e)}>
+    <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
       {children}
     </div>
   )
