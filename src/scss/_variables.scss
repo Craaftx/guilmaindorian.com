@@ -1,5 +1,7 @@
+$primary-color: #644ed1;
+
 $cube-background: #313149;
 $cube-border: #313149;
 $cube-inside: #101d2e;
 $cube-inside-border: rgba(255, 255, 255, 0.8);
-$cube-d-letter-border: #ff9800;
+$cube-d-letter-border: $primary-color;
