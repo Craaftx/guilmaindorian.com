@@ -1,26 +1,30 @@
-import React from "react"
+import React, { useRef } from "react"
 
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import { Layer, Scene } from "../components/Scene"
 import HomeLayer from "../components/HomeLayer"
 import AboutLayer from "../components/AboutLayer"
+import AboutLayerTwo from "../components/AboutLayerTwo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <Scene>
-      <Layer>
-        <HomeLayer />
-      </Layer>
-      <Layer>
-        <AboutLayer />
-      </Layer>
-      <Layer>
-        <AboutLayer />
-      </Layer>
-    </Scene>
-  </Layout>
-)
+const IndexPage = () => {
+  const sceneRef = useRef()
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Scene sceneRef={sceneRef}>
+        <Layer>
+          <HomeLayer />
+        </Layer>
+        <Layer>
+          <AboutLayer sceneRef={sceneRef} />
+        </Layer>
+        <Layer>
+          <AboutLayerTwo sceneRef={sceneRef} />
+        </Layer>
+      </Scene>
+    </Layout>
+  )
+}
 
 export default IndexPage
