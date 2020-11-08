@@ -17,11 +17,11 @@
     font-size: 4rem;
     line-height: 1;
     span {
-      -webkit-text-stroke: 1px #ff9800;
-      text-stroke: 1px #ff9800;
+      -webkit-text-stroke: 2px $primary-color;
+      text-stroke: 2px $primary-color;
       -webkit-text-fill-color: transparent;
       text-fill-color: transparent;
-      color: #ff9800;
+      color: $primary-color;
     }
   }
   .undertitle {
