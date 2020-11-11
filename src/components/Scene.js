@@ -30,18 +30,22 @@ export const Scene = ({ children, sceneRef }) => {
   }
 
   children = children.map((child, index) => {
-    return cloneElement(child, {
-      isActive: index === currentLayerIndex,
-      isNext:
-        children[currentLayerIndex + 1] && index - 1 === currentLayerIndex
-          ? true
-          : false,
-      isPrevious:
-        children[currentLayerIndex - 1] && index + 1 === currentLayerIndex
-          ? true
-          : false,
-      index,
-    })
+    return (
+      <React.Fragment key={index}>
+        {cloneElement(child, {
+          isActive: index === currentLayerIndex,
+          isNext:
+            children[currentLayerIndex + 1] && index - 1 === currentLayerIndex
+              ? true
+              : false,
+          isPrevious:
+            children[currentLayerIndex - 1] && index + 1 === currentLayerIndex
+              ? true
+              : false,
+          index,
+        })}
+      </React.Fragment>
+    )
   })
 
   return (
