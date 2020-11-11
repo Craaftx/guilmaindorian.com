@@ -1,13 +1,46 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { CursorProvider } from "../utils/useCursor"
+import CircleType from "circletype"
 
 const lerp = (v0, v1, t) => {
   return v0 * (1 - t) + v1 * t
 }
 
 const CustomCursor = ({ children }) => {
+  const [links, setLinks] = useState([])
   const cursorPointer = useRef()
   const cursorCircle = useRef()
+  const cursorText = useRef()
+
+  const registerLink = linkRef => {
+    console.log("called with")
+    console.log(linkRef)
+    setLinks([...links, linkRef])
+  }
+
+  const handleMouseEnter = () => {
+    console.log("handleMouseEnter")
+    cursorCircle.current.classList.add("cursor--circle--link")
+  }
+
+  const handleMouseLeave = () => {
+    console.log("handleMouseLeave")
+    cursorCircle.current.classList.remove("cursor--circle--link")
+  }
+
+  useEffect(() => {
+    const circleType = new CircleType(cursorText.current)
+    circleType.radius(44)
+  }, [])
+
+  useEffect(() => {
+    if (links) {
+      links.map(item => {
+        item.current.addEventListener("mouseenter", handleMouseEnter)
+        item.current.addEventListener("mouseleave", handleMouseLeave)
+      })
+    }
+  }, [links])
 
   useEffect(() => {
     let clientX = -100
@@ -52,9 +85,16 @@ const CustomCursor = ({ children }) => {
     <CursorProvider
       cursorCircleRef={cursorCircle}
       cursorPointerRef={cursorPointer}
+      registerLink={registerLink}
     >
       <div className="cursor cursor--pointer" ref={cursorPointer} />
-      <div className="cursor cursor--circle" ref={cursorCircle} />
+      <div className="cursor cursor--circle" ref={cursorCircle}>
+        <div className="cursor--circle__container">
+          <span className="cursor--circle__text" ref={cursorText}>
+            Visit link
+          </span>
+        </div>
+      </div>
       {children}
     </CursorProvider>
   )

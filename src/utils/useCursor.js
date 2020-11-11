@@ -5,10 +5,13 @@ const CursorContext = createContext()
 export const CursorProvider = ({
   cursorPointerRef,
   cursorCircleRef,
+  registerLink,
   children,
 }) => {
   return (
-    <CursorContext.Provider value={{ cursorPointerRef, cursorCircleRef }}>
+    <CursorContext.Provider
+      value={{ cursorPointerRef, cursorCircleRef, registerLink }}
+    >
       {children}
     </CursorContext.Provider>
   )
