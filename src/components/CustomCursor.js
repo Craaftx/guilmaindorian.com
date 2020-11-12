@@ -13,18 +13,14 @@ const CustomCursor = ({ children }) => {
   const cursorText = useRef()
 
   const registerLink = linkRef => {
-    console.log("called with")
-    console.log(linkRef)
     setLinks([...links, linkRef])
   }
 
   const handleMouseEnter = () => {
-    console.log("handleMouseEnter")
     cursorCircle.current.classList.add("cursor--circle--link")
   }
 
   const handleMouseLeave = () => {
-    console.log("handleMouseLeave")
     cursorCircle.current.classList.remove("cursor--circle--link")
   }
 
