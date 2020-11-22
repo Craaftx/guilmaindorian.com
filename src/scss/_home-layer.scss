@@ -9,6 +9,8 @@
 }
 
 .entry-content {
+  position: relative;
+  z-index: 10;
   color: #fff;
   max-width: 760px;
   .title {

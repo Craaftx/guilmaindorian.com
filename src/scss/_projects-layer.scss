@@ -1,0 +1,152 @@
+.project-layer {
+  display: flex;
+  padding: 10vh 5vh;
+  height: 100%;
+  width: 100%;
+}
+
+.project-card-wrapper {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  &:nth-child(2n) {
+    .project-card {
+      align-items: flex-end;
+    }
+  }
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 340px;
+  height: 100%;
+  outline: none;
+  .content {
+    position: relative;
+    max-width: 300px;
+    outline: none;
+    text-decoration: none;
+    img {
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+    .title {
+      position: absolute;
+      bottom: 2rem;
+      left: 1.5rem;
+      transform: rotate(-90deg);
+      transform-origin: bottom left;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      font-size: 3rem;
+      line-height: 1;
+      text-transform: uppercase;
+      margin: 0;
+      margin-bottom: 0.5rem;
+      color: #fff;
+      width: 90vh;
+    }
+    .number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-weight: 800;
+      font-size: 4rem;
+      -webkit-text-stroke: 2px #644ed1;
+      text-stroke: 2px #644ed1;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      color: #644ed1;
+    }
+  }
+  &__link {
+    position: absolute;
+    bottom: -0.6rem;
+    right: 0;
+    margin: 0;
+    padding: 0.6rem 1.6rem;
+    border: none;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    border-bottom-right-radius: 10px;
+    color: #000;
+    background: #fff;
+    display: none;
+  }
+  &:hover {
+    .project-card__link {
+      display: block;
+    }
+  }
+}
+
+/* Glitch styles */
+.glitch {
+  position: relative;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 10px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.glitch__img {
+  position: absolute;
+  top: calc(-1 * 50px);
+  left: 0;
+  width: 100%;
+  height: calc(100% + 50px * 2);
+  background: url("https://assets.codepen.io/2287220/codepenImage.png")
+    no-repeat 50% 0;
+  background-color: $blend-color-1;
+  background-size: cover;
+  transform: translate3d(0, 0, 0);
+  background-blend-mode: $blend-mode-1;
+}
+
+.glitch__img {
+  opacity: 0;
+}
+
+.project-card--animated {
+  .glitch__img {
+    animation-duration: $time-anim;
+    animation-delay: $delay-anim;
+    animation-timing-function: linear;
+  }
+
+  .glitch__img:nth-child(1) {
+    background-color: $blend-color-2;
+    background-blend-mode: $blend-mode-2;
+    animation-name: glitch-anim-1;
+  }
+
+  .glitch__img:nth-child(2) {
+    background-color: $blend-color-3;
+    background-blend-mode: $blend-mode-3;
+    animation-name: glitch-anim-2;
+  }
+
+  .glitch__img:nth-child(3) {
+    background-color: $blend-color-4;
+    background-blend-mode: $blend-mode-4;
+    animation-name: glitch-anim-3;
+  }
+
+  .glitch__img:nth-child(4) {
+    background-color: $blend-color-5;
+    background-blend-mode: $blend-mode-5;
+    animation-name: glitch-anim-flash;
+  }
+}
