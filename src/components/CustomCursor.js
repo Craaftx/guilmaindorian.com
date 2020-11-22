@@ -13,7 +13,8 @@ const CustomCursor = ({ children }) => {
   const cursorText = useRef()
 
   const registerLink = linkRef => {
-    setLinks([...links, linkRef])
+    const newLinkArray = links.push(linkRef)
+    setLinks(newLinkArray)
   }
 
   const handleMouseEnter = () => {
@@ -31,10 +32,10 @@ const CustomCursor = ({ children }) => {
 
   useEffect(() => {
     if (links) {
-      links.map(item => {
-        item.current.addEventListener("mouseenter", handleMouseEnter)
-        item.current.addEventListener("mouseleave", handleMouseLeave)
-      })
+      for (let index = 0; index < links.length; index++) {
+        links[index].current.addEventListener("mouseenter", handleMouseEnter)
+        links[index].current.addEventListener("mouseleave", handleMouseLeave)
+      }
     }
   }, [links])
 
