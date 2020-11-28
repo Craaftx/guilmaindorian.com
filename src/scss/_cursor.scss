@@ -6,11 +6,15 @@ a {
 }
 
 .cursor {
+  display: none;
   @media (min-width: 560px) {
     position: fixed;
     left: 0;
     top: 0;
     pointer-events: none;
+  }
+  &.disabled {
+    opacity: 0;
   }
 }
 
