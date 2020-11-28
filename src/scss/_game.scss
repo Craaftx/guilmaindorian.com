@@ -1,0 +1,317 @@
+.mobile-controls {
+  z-index: 9999;
+  position: fixed;
+  display: none;
+  pointer-events: none;
+  background: transparent;
+  width: 100vw;
+  height: 100vh;
+  .right {
+    flex: 50%;
+  }
+  .left {
+    flex: 50%;
+  }
+}
+
+.game {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  perspective: 800px;
+  perspective-origin: 50% 100px;
+  @media screen and (max-width: 500px) {
+    transform: scale(0.8) translateY(-50%);
+  }
+}
+
+.game-menu,
+.game-menu-over {
+  z-index: 2;
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #b2b2b2;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  p {
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  svg {
+    color: #644ed1;
+    display: inline-block;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    padding: 0.2rem 0.2rem;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 0 5px;
+    transform: translatey(0.3rem);
+    @media screen and (max-width: 500px) {
+      border-width: 2px;
+    }
+  }
+  button {
+    padding: 0.6rem 1.6rem;
+    border: none;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #000;
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &:hover,
+    &:focus {
+      border: 1px solid #fff;
+      color: #fff;
+      background-color: transparent;
+    }
+  }
+}
+
+.game-menu-over {
+  top: 40%;
+  p:nth-child(1) {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  button.share {
+    background: transparent;
+    color: #fff;
+  }
+}
+
+.game-infos {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  transform: rotatey(-90deg) translateZ(-150px);
+  opacity: 0;
+  color: #b2b2b2;
+  @media screen and (max-width: 500px) {
+    top: -170px;
+    justify-content: center;
+    align-items: center;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+  }
+  margin-top: 10px;
+  display: flex;
+  svg {
+    transition: opacity 200ms;
+    width: 16px;
+    color: #fff;
+  }
+  .lives--2 {
+    svg {
+      &:nth-child(3) {
+        opacity: 0;
+      }
+    }
+  }
+  .lives--1 {
+    svg {
+      &:nth-child(3) {
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+  }
+  .lives--0 {
+    svg {
+      &:nth-child(3) {
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(1) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.game-wrapper {
+  transition: 1000ms;
+  pointer-events: none;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  width: 600px;
+  height: 300px;
+  transform: translatez(-60px) translateX(-40px) rotateX(-30deg) rotatey(60deg);
+  transition-timing-function: linear;
+  transition-duration: 2s;
+  transition-property: transform;
+  .wrapper-front,
+  .wrapper-top,
+  .wrapper-right,
+  .wrapper-bottom,
+  .wrapper-left,
+  .wrapper-back {
+    position: absolute;
+  }
+
+  .wrapper-front,
+  .wrapper-back {
+    width: 600px;
+    height: 300px;
+  }
+
+  .wrapper-right,
+  .wrapper-left {
+    width: 300px;
+    height: 300px;
+    left: 150px;
+  }
+
+  .wrapper-top,
+  .wrapper-bottom {
+    width: 600px;
+    height: 300px;
+  }
+
+  .wrapper-front {
+    transform: rotateY(0deg) translateZ(150px);
+  }
+
+  .wrapper-back {
+    transform: rotateY(-180deg) translateZ(150px);
+  }
+
+  .wrapper-right {
+    transform: rotateY(-90deg) translateZ(300px);
+  }
+
+  .wrapper-left {
+    transform: rotateY(90deg) translateZ(300px);
+  }
+
+  .wrapper-top {
+    transform: rotateX(90deg) translateZ(150px);
+  }
+
+  .wrapper-bottom {
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.15);
+    transform: scaleX(-1) rotateX(-90deg) translateZ(150px);
+    border-top: 1px solid currentcolor;
+    border-bottom: 1px solid currentcolor;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100px;
+      height: 1px;
+      width: 100%;
+      background-color: currentcolor;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 200px;
+      height: 1px;
+      width: 100%;
+      background-color: currentcolor;
+    }
+  }
+}
+
+.ring {
+  position: absolute;
+  transform: rotateY(90deg);
+  width: 300px;
+  height: 300px;
+  right: 0;
+  color: #fff;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation-name: ring-movement;
+  animation-duration: 4000ms;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  &--center {
+    width: 100px;
+  }
+  &--right {
+    animation-name: ring-movement-right;
+    width: 100px;
+  }
+  &--left {
+    animation-name: ring-movement-left;
+    width: 100px;
+  }
+  &--trap {
+    background-color: #fff;
+  }
+}
+
+.spaceship-movement {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spaceship-movement-rotation 2s ease-in-out alternate infinite,
+    spaceship-movement-position 3s ease-in-out alternate infinite;
+}
+
+.spaceship-movement {
+  .spaceship {
+    position: absolute;
+    width: 120px;
+    height: 50px;
+    top: 100px;
+    left: 30px;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: rotateY(90deg) translateX(-30px);
+    transition-property: transform, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+    &.died {
+      .body-front,
+      .body-top,
+      .body-right,
+      .body-bottom,
+      .body-left,
+      .body-back,
+      .wing-front,
+      .wing-top,
+      .wing-right,
+      .wing-bottom,
+      .wing-left,
+      .wing-back,
+      .fin-front,
+      .fin-top,
+      .fin-right,
+      .fin-bottom,
+      .fin-left,
+      .fin-back {
+        transition: 1000ms;
+        border: 1px solid transparent;
+        background-color: transparent;
+      }
+    }
+  }
+}
