@@ -1,5 +1,7 @@
-const Spaceship = ({ ref }) => (
-  <div className="spaceship" ref={ref}>
+import React from "react"
+
+const Spaceship = React.forwardRef((props, ref) => (
+  <div className="spaceship" ref={ref} {...props}>
     <div className="body-front"></div>
     <div className="body-top"></div>
     <div className="body-right"></div>
@@ -31,6 +33,6 @@ const Spaceship = ({ ref }) => (
       <div className="wing-back"></div>
     </div>
   </div>
-)
+))
 
 export default Spaceship
