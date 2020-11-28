@@ -7,6 +7,7 @@ import HomeLayer from "../components/HomeLayer"
 import AboutLayer from "../components/AboutLayer"
 import AboutLayerTwo from "../components/AboutLayerTwo"
 import ProjectsLayer from "../components/ProjectsLayer"
+import ContactLayer from "../components/ContactLayer"
 
 const IndexPage = () => {
   const sceneRef = useRef()
@@ -25,6 +26,9 @@ const IndexPage = () => {
         </Layer>
         <Layer>
           <ProjectsLayer />
+        </Layer>
+        <Layer>
+          <ContactLayer />
         </Layer>
       </Scene>
     </Layout>
