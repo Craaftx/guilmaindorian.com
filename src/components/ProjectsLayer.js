@@ -55,7 +55,7 @@ const ProjectCard = ({ index, project }) => {
     <div className="project-card-wrapper">
       <div className="project-card" ref={cardRef}>
         <a
-          className="content"
+          className="project-card__content"
           href={project.link}
           ref={project.linkRef}
           onMouseEnter={() => handleAnimation(true)}

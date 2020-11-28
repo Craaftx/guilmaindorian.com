@@ -8,6 +8,7 @@ a {
 .cursor {
   display: none;
   @media (min-width: 560px) {
+    display: block;
     position: fixed;
     left: 0;
     top: 0;

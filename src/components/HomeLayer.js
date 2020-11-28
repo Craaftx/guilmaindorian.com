@@ -2,19 +2,20 @@ import React from "react"
 
 const HomeLayer = () => {
   return (
-    <div className="home-layer">
-      <div className="entry-content">
-        <h1 className="title">
-          Hello I'm <span>Dorian</span> & I create things with <span>CSS</span>
+    <div className="home-layer with-perspective-layer">
+      <div className="content">
+        <h1 className="big-title">
+          Hello I'm <span className="stroked">Dorian</span> & I create things
+          with <span className="stroked">CSS</span>
         </h1>
-        <p className="undertitle">
+        <p>
           My name is Dorian I am a 23 year old web developer who mainly codes in
           Javascript, I like to create funny things with CSS and I also do web
           design. I always try to improve my skills and I have tons of new ideas
           everyday in my head so I spend a lot of time creating new projects
         </p>
       </div>
-      <div className="main-scene">
+      <div className="perspective-scene">
         <div className="main-cube">
           <div className="wrap">
             <div className="cube" id="main-cube">

@@ -16,9 +16,9 @@ const ContactLayer = () => {
   }, [])
 
   return (
-    <>
-      <div className="contact-content">
-        <h2>
+    <div className="contact-layer with-perspective-layer">
+      <div className="content">
+        <h2 className="big-title">
           Send me something{" "}
           <span className="contact-word">
             <span>stupid </span>
@@ -35,6 +35,7 @@ const ContactLayer = () => {
             <a
               href="https://www.linkedin.com/in/dorian-guilmain/"
               target="_blank"
+              className="small-title"
               rel="noreferrer"
               ref={linkedInLink}
             >
@@ -43,6 +44,7 @@ const ContactLayer = () => {
             <a
               href="https://twitter.com/Craaftx1"
               target="_blank"
+              className="small-title"
               rel="noreferrer"
               ref={twitterLink}
             >
@@ -51,14 +53,20 @@ const ContactLayer = () => {
           </div>
           <div className="section section--mail">
             <h3 className="section__title">Or by mail</h3>
-            <a href="mailto:hello@guilmaindorian.com" ref={mailLink}>
+            <a
+              href="mailto:hello@guilmaindorian.com"
+              className="small-title"
+              ref={mailLink}
+            >
               hello@guilmaindorian.com
             </a>
           </div>
         </div>
       </div>
-      <Game />
-    </>
+      <div className="perspective-scene">
+        <Game />
+      </div>
+    </div>
   )
 }
 

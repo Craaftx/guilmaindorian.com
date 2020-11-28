@@ -50,10 +50,10 @@ const AboutLayerTwo = ({ sceneRef }) => {
       <div className="card-wrapper">
         <div className="card">
           <img src={buildingImg} alt="Plants" />
-          <div className="content">
-            <h2 className="title">
+          <div className="card__content">
+            <h2 className="big-title">
               {" "}
-              <b>Web </b>Developer ?
+              <b className="stroked">Web </b>Developer ?
             </h2>
             <p className="description" ref={webDeveloperReveal.textRef}>
               Je développe depuis maintenant quelques années, principalement en{" "}
@@ -76,10 +76,10 @@ const AboutLayerTwo = ({ sceneRef }) => {
               <source src={blinkingWhiteGuy} type="video/mp4" />
             </video>
           </div>
-          <div className="content">
-            <h2 className="title">
+          <div className="card__content">
+            <h2 className="big-title">
               {" "}
-              <b>MEMES</b> ADDICT{" "}
+              <b className="stroked">MEMES</b> ADDICT{" "}
             </h2>
             <p className="description">
               I discovered CSS images through a @sashatran post and I

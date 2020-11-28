@@ -25,7 +25,7 @@
   width: 340px;
   height: 100%;
   outline: none;
-  .content {
+  &__content {
     position: relative;
     max-width: 300px;
     outline: none;
@@ -92,7 +92,6 @@
   position: relative;
   top: 0;
   left: 0;
-  overflow: hidden;
   pointer-events: none;
   border-radius: 10px;
   img {

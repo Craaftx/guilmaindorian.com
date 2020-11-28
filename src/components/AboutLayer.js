@@ -71,10 +71,10 @@ const AboutLayer = ({ sceneRef }) => {
       <div className="card-wrapper">
         <div className="card">
           <img src={spaceImg} alt="Space" />
-          <div className="content">
-            <h2 className="title">
+          <div className="card__content">
+            <h2 className="big-title">
               {" "}
-              <b>Space </b>Lover
+              <b className="stroked">Space </b>Lover
             </h2>
             <p className="description" ref={spaceReveal.textRef}>
               A human on a rock turning around another{" "}
@@ -94,10 +94,10 @@ const AboutLayer = ({ sceneRef }) => {
       <div className="card-wrapper card-wrapper--right">
         <div className="card">
           <img src={wizardImg} alt="Wizard" />
-          <div className="content">
-            <h2 className="title">
+          <div className="card__content">
+            <h2 className="big-title">
               {" "}
-              CSS <b>Wizard </b>
+              CSS <b className="stroked">Wizard </b>
             </h2>
             <p className="description" ref={cssWizardReveal.textRef}>
               I discovered CSS images through a @sashatran post and I
