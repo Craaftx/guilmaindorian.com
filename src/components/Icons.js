@@ -1,8 +1,10 @@
+import React from "react"
+
 export const LeftArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewbox="0 0 24 24"
+    viewBox="0 0 24 24"
     stroke="currentColor"
   >
     <path
@@ -18,7 +20,7 @@ export const RightArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewbox="0 0 24 24"
+    viewBox="0 0 24 24"
     stroke="currentColor"
   >
     <path
@@ -34,7 +36,7 @@ export const HeartIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewbox="0 0 24 24"
+    viewBox="0 0 24 24"
     stroke="currentColor"
   >
     <path
