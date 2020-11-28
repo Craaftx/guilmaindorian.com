@@ -231,3 +231,59 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+/** Game Keyframes */
+
+@keyframes spaceship-movement-rotation {
+  0% {
+    transform: rotateX(4deg);
+  }
+  100% {
+    transform: rotateX(-4deg);
+  }
+}
+
+@keyframes spaceship-movement-position {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes ring-movement {
+  0% {
+    transform: rotateY(90deg) translateZ(700px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(90deg) translateZ(-900px);
+  }
+}
+
+@keyframes ring-movement-right {
+  0% {
+    transform: rotateY(90deg) translateZ(700px) translateX(-100px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(90deg) translateZ(-900px) translateX(-100px);
+  }
+}
+
+@keyframes ring-movement-left {
+  0% {
+    transform: rotateY(90deg) translateZ(700px) translateX(100px);
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(90deg) translateZ(-900px) translateX(100px);
+  }
+}
