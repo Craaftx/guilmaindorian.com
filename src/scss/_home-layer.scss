@@ -57,12 +57,12 @@
   height: 200px;
   width: 200px;
   transform: translate(-60%, -45%);
+  transform-style: preserve-3d;
   .wrap {
     position: relative;
-    perspective: 0px;
-    perspective-origin: 50% 100px;
-    transform-style: preserve-3d;
     top: 0px;
+    perspective: 800px;
+    perspective-origin: 50% 100px;
   }
   &:hover {
     .spaceship {
