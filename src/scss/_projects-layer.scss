@@ -94,6 +94,7 @@
   left: 0;
   pointer-events: none;
   border-radius: 10px;
+  overflow: hidden;
   img {
     width: 100%;
     height: auto;
@@ -102,10 +103,10 @@
 
 .glitch__img {
   position: absolute;
-  top: calc(-1 * 50px);
-  left: 0;
-  width: 100%;
-  height: calc(100% + 50px * 2);
+  top: -100px;
+  left: -50px;
+  width: calc(100% + 50px * 2);
+  height: calc(100% + 100px * 2);
   background: url("https://assets.codepen.io/2287220/codepenImage.png")
     no-repeat 50% 0;
   background-color: $blend-color-1;
@@ -116,36 +117,50 @@
 
 .glitch__img {
   opacity: 0;
-}
-
-.project-card--animated {
-  .glitch__img {
-    animation-duration: $time-anim;
-    animation-delay: $delay-anim;
-    animation-timing-function: linear;
-  }
-
-  .glitch__img:nth-child(1) {
+  &:nth-child(2) {
     background-color: $blend-color-2;
     background-blend-mode: $blend-mode-2;
-    animation-name: glitch-anim-1;
   }
 
-  .glitch__img:nth-child(2) {
+  &:nth-child(3) {
     background-color: $blend-color-3;
     background-blend-mode: $blend-mode-3;
-    animation-name: glitch-anim-2;
   }
 
-  .glitch__img:nth-child(3) {
+  &:nth-child(4) {
     background-color: $blend-color-4;
     background-blend-mode: $blend-mode-4;
-    animation-name: glitch-anim-3;
   }
 
-  .glitch__img:nth-child(4) {
+  &:nth-child(5) {
     background-color: $blend-color-5;
     background-blend-mode: $blend-mode-5;
-    animation-name: glitch-anim-flash;
+  }
+}
+
+.project-card--animated .glitch__img {
+  opacity: 1;
+  animation-duration: $time-anim;
+  animation-delay: $delay-anim;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &:nth-child(2) {
+    transform: translate3d(50, 0, 0);
+    animation-name: glitch-anim-1-horizontal;
+  }
+
+  &:nth-child(3) {
+    transform: translate3d(calc(-1 * 50), 0, 0);
+    animation-name: glitch-anim-2-horizontal;
+  }
+
+  &:nth-child(4) {
+    transform: translate3d(0, calc(-1 * 100), 0) scale3d(-1, -1, 1);
+    animation-name: glitch-anim-3-horizontal;
+  }
+
+  &:nth-child(5) {
+    animation: glitch-anim-flash 0.9s steps(1, end) infinite;
   }
 }

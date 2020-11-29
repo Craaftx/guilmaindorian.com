@@ -18,25 +18,25 @@ const ProjectCard = ({ index, project }) => {
 
     setTimeout(() => {
       glitch1.current.style.backgroundImage = `url(${imageSrc})`
-    }, 1200)
+    }, 2200)
 
     setTimeout(() => {
       glitch2.current.style.backgroundImage = `url(${imageSrc})`
-    }, 1400)
+    }, 2400)
 
     setTimeout(() => {
       glitch3.current.style.backgroundImage = `url(${imageSrc})`
-    }, 1600)
+    }, 2600)
 
     setTimeout(() => {
       glitch4.current.style.backgroundImage = `url(${imageSrc})`
-    }, 2000)
+    }, 3200)
 
     setTimeout(() => {
       mainImage.current.src = imageSrc
       cardRef.current.classList.remove("project-card--animated")
       setAnimationRunning(false)
-    }, 2000)
+    }, 4000)
   }
 
   const handleAnimation = isEnter => {
