@@ -3,18 +3,6 @@ import React from "react"
 const HomeLayer = () => {
   return (
     <div className="home-layer with-perspective-layer">
-      <div className="content">
-        <h1 className="big-title">
-          Hello I'm <span className="stroked">Dorian</span> & I create things
-          with <span className="stroked">CSS</span>
-        </h1>
-        <p>
-          My name is Dorian I am a 23 year old web developer who mainly codes in
-          Javascript, I like to create funny things with CSS and I also do web
-          design. I always try to improve my skills and I have tons of new ideas
-          everyday in my head so I spend a lot of time creating new projects
-        </p>
-      </div>
       <div className="perspective-scene">
         <div className="main-cube">
           <div className="wrap">
@@ -103,6 +91,18 @@ const HomeLayer = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="content">
+        <h1 className="big-title">
+          Hello I'm <span className="stroked">Dorian</span> & I create things
+          with <span className="stroked">CSS</span>
+        </h1>
+        <p>
+          My name is Dorian I am a 23 year old web developer who mainly codes in
+          Javascript, I like to create funny things with CSS and I also do web
+          design. I always try to improve my skills and I have tons of new ideas
+          everyday in my head so I spend a lot of time creating new projects
+        </p>
       </div>
     </div>
   )
