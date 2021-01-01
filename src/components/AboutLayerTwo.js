@@ -4,6 +4,7 @@ import buildingImg from "../images/building.jpg"
 import javascriptImg from "../images/javascript.jpg"
 import addRevealEvents from "../utils/reveals"
 import { useCursor } from "../utils/useCursor"
+import SwipeIndicator from "./SwipeIndicator"
 
 const AboutLayerTwo = ({ sceneRef }) => {
   const blinkingWhiteGuyVideo = useRef()
@@ -93,6 +94,7 @@ const AboutLayerTwo = ({ sceneRef }) => {
           </div>
         </div>
       </div>
+      <SwipeIndicator />
     </div>
   )
 }

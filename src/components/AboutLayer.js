@@ -6,6 +6,7 @@ import wizardImg from "../images/wizard.jpg"
 import spaceImg from "../images/space.jpg"
 import pikachuImg from "../images/pikachu.jpg"
 import addRevealEvents from "../utils/reveals"
+import SwipeIndicator from "./SwipeIndicator"
 
 const AboutLayer = ({ sceneRef }) => {
   const { cursorCircleRef } = useCursor()
@@ -111,6 +112,7 @@ const AboutLayer = ({ sceneRef }) => {
           </div>
         </div>
       </div>
+      <SwipeIndicator />
     </div>
   )
 }
