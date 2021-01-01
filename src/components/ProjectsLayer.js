@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
 import { useCursor } from "../utils/useCursor"
+import SwipeIndicator from "./SwipeIndicator"
 
 const ProjectCard = ({ index, project }) => {
   const [animationRunning, setAnimationRunning] = useState(false)
@@ -123,6 +124,7 @@ const ProjectsLayer = () => {
       {projects.map((project, index) => (
         <ProjectCard key={index} index={index} project={project} />
       ))}
+      <SwipeIndicator />
     </div>
   )
 }
