@@ -2,6 +2,7 @@ import Game from "./Game"
 
 import React, { useEffect, useRef } from "react"
 import { useCursor } from "../utils/useCursor"
+import SwipeIndicator from "./SwipeIndicator"
 
 const ContactLayer = () => {
   const { registerLink } = useCursor()
@@ -23,10 +24,10 @@ const ContactLayer = () => {
           <span className="contact-word">
             <span>stupid </span>
             <span>stupid </span>
-            <span>stupid </span>
-            <span>stupid </span>
-            <span>stupid </span>
-            <span>stupid</span>
+            <span>imaginative </span>
+            <span>funny </span>
+            <span>interessing </span>
+            <span>awesome</span>
           </span>
         </h2>
         <div className="sections">
@@ -66,6 +67,7 @@ const ContactLayer = () => {
       <div className="perspective-scene">
         <Game />
       </div>
+      <SwipeIndicator />
     </div>
   )
 }

@@ -343,8 +343,8 @@ const Game = () => {
 
     const initGame = async () => {
       let intervalTime = 1000
-      let speed = 2800
-      let trapChance = 9
+      let speed = 2900
+      let trapChance = 8
 
       // Restart indicators
       score = 0
@@ -441,20 +441,25 @@ const Game = () => {
           <p ref={finalScoreIndicator}>0000</p>
           <p>That a nice score for sure</p>
           <p ref={bestScoreIndicator}>Highscore at 0011</p>
-          <button className="share">share</button>
           <button className="play" ref={restartButton}>
             play
           </button>
         </div>
         <div className="game-menu" ref={gameMenu}>
-          <p>
-            Move with <LeftArrowIcon />
-            and
-            <RightArrowIcon />
-            keys
-          </p>
-          <p>Go through the rectangles </p>
-          <p>And avoid traps</p>
+          <div class="game-controls-indicator-mobile">
+            <p>Tap on right {"&"} left to move</p>
+          </div>
+          <div class="game-controls-indicator-desktop">
+            <p>
+              Use
+              <LeftArrowIcon />
+              and
+              <RightArrowIcon />
+              keys
+            </p>
+            <p>Through the rectangles </p>
+            <p>Try to avoid traps</p>
+          </div>
           <button className="play" ref={startButton}>
             play
           </button>

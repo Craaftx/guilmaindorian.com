@@ -1,6 +1,6 @@
-.mobile-controls {
+.game-mobile-controls {
   z-index: 9999;
-  position: fixed;
+  position: absolute;
   display: none;
   pointer-events: none;
   background: transparent;
@@ -23,6 +23,7 @@
   height: 400px;
   perspective: 800px;
   perspective-origin: 50% 100px;
+  transform-origin: center center;
   @media screen and (max-width: 500px) {
     transform: scale(0.8) translateY(-50%);
   }
@@ -32,7 +33,7 @@
 .game-menu-over {
   z-index: 2;
   position: absolute;
-  width: 300px;
+  width: 200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,28 +41,27 @@
   text-align: center;
   opacity: 0;
   pointer-events: none;
+  text-align: right;
   p {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
   }
   svg {
     color: #644ed1;
     display: inline-block;
     position: relative;
-    width: 1rem;
-    height: 1rem;
-    padding: 0.2rem 0.2rem;
-    border: 1px solid;
-    border-radius: 5px;
-    margin: 0 5px;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+    border: 2px solid;
+    border-radius: 2px;
+    margin: 0 0.4rem;
     transform: translatey(0.3rem);
-    @media screen and (max-width: 500px) {
-      border-width: 2px;
-    }
   }
   button {
+    margin-top: 0.5rem;
     padding: 0.6rem 1.6rem;
     border: none;
     font-weight: 800;
@@ -69,15 +69,16 @@
     font-size: 1rem;
     line-height: 1;
     text-transform: uppercase;
-    color: #000;
-    background-color: #fff;
     cursor: pointer;
-    border: 1px solid transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: transparent;
     &:hover,
     &:focus {
-      border: 1px solid #fff;
-      color: #fff;
-      background-color: transparent;
+      border: 1px solid transparent;
+      color: #000;
+      background-color: #fff;
     }
   }
 }
@@ -95,6 +96,20 @@
   }
 }
 
+.game-controls-indicator {
+  &-mobile {
+    display: none;
+    @media (max-width: 500px) {
+      display: block;
+    }
+  }
+  &-desktop {
+    display: block;
+    @media (max-width: 500px) {
+      display: none;
+    }
+  }
+}
 .game-infos {
   position: absolute;
   top: 0px;
