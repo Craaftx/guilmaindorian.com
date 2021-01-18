@@ -157,6 +157,40 @@ p {
   }
 }
 
+.scene-background {
+  z-index: -1;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  transition: 400ms;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 2px;
+    top: -2px;
+    box-shadow: stars(500, 1920);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle at -150px -50px,
+      #2a3c53 0%,
+      #050608 100%
+    );
+  }
+}
+
 @keyframes scroll-icon-sliding {
   0% {
     transform: translateX(0);

@@ -1,5 +1,19 @@
 import React, { cloneElement, useEffect, useState } from "react"
 
+const Background = ({ layer }) => {
+  return (
+    <div
+      className="scene-background"
+      style={{
+        transform: `translate(-50%, -50%) rotate(${
+          layer * 2
+        }deg) scale(1.${layer})`,
+        opacity: `0.${10 - layer}`,
+      }}
+    />
+  )
+}
+
 export const Scene = ({ children, sceneRef }) => {
   const [currentLayerIndex, setCurrentLayerIndex] = useState(0)
   const [wheelFired, setWheelFired] = useState(false)
@@ -49,9 +63,12 @@ export const Scene = ({ children, sceneRef }) => {
   })
 
   return (
-    <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
-      {children}
-    </div>
+    <>
+      <Background layer={currentLayerIndex} />
+      <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
+        {children}
+      </div>
+    </>
   )
 }
 
