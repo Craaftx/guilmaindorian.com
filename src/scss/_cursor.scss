@@ -30,15 +30,25 @@ a {
 }
 
 .cursor--circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
   left: -25px;
   top: -25px;
   border-radius: 50%;
   z-index: 11000;
-  border: 1px solid #fff;
   color: #fff;
   background: transparent;
+  svg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform-origin: center center;
+    transition: 250ms transform;
+    transition-timing-function: linear;
+  }
   &__container {
     transition: 200ms;
     opacity: 0;
@@ -58,6 +68,9 @@ a {
   &--link {
     .cursor--circle__container {
       opacity: 1;
+    }
+    svg {
+      transform: rotate(30deg) scale(1.4);
     }
   }
 }

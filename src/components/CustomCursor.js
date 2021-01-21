@@ -86,6 +86,19 @@ const CustomCursor = ({ children }) => {
     >
       <div className="cursor cursor--pointer" ref={cursorPointer} />
       <div className="cursor cursor--circle" ref={cursorCircle}>
+        <svg
+          width="201"
+          height="232"
+          viewBox="0 0 201 232"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6 169.915V61.2584L100.15 6.92735L194.301 61.2584V169.915L100.15 224.247L6 169.915Z"
+            stroke="#ffffff"
+            strokeWidth="12"
+          />
+        </svg>
         <div className="cursor--circle__container">
           <span className="cursor--circle__text" ref={cursorText}>
             Visit link
