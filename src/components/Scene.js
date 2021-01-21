@@ -76,7 +76,7 @@ export const Scene = ({ children, sceneRef }) => {
   })
 
   return (
-    <main className={isEntrance ? "entrance-animation" : ""}>
+    <main className={`main ${isEntrance ? "entrance-animation" : ""}`}>
       <Background maxLayer={maxLayer} layer={currentLayerIndex} />
       <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
         {children}

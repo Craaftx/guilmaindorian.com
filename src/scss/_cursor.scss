@@ -8,7 +8,7 @@ a {
 .cursor {
   display: none;
   @media (min-width: 560px) {
-    display: block;
+    display: flex;
     position: fixed;
     left: 0;
     top: 0;
@@ -30,7 +30,6 @@ a {
 }
 
 .cursor--circle {
-  display: flex;
   align-items: center;
   justify-content: center;
   width: 50px;
