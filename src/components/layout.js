@@ -10,11 +10,7 @@ import "../scss/index.scss"
 import CustomCursor from "./CustomCursor"
 
 const Layout = ({ children }) => {
-  return (
-    <CustomCursor>
-      <main>{children}</main>
-    </CustomCursor>
-  )
+  return <CustomCursor>{children}</CustomCursor>
 }
 
 export default Layout

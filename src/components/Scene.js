@@ -1,14 +1,15 @@
 import React, { cloneElement, useEffect, useState } from "react"
 
-const Background = ({ layer }) => {
+const Background = ({ maxLayer, layer }) => {
+  const strength = maxLayer - layer
   return (
     <div
       className="scene-background"
       style={{
         transform: `translate(-50%, -50%) rotate(${
-          layer * 2
-        }deg) scale(1.${layer})`,
-        opacity: `0.${10 - layer}`,
+          strength * 4
+        }deg) scale(1.${strength})`,
+        opacity: `0.${strength === 0 ? 9 : 10 - strength}`,
       }}
     />
   )
@@ -17,6 +18,7 @@ const Background = ({ layer }) => {
 export const Scene = ({ children, sceneRef }) => {
   const [currentLayerIndex, setCurrentLayerIndex] = useState(0)
   const [wheelFired, setWheelFired] = useState(false)
+  const [isEntrance, setIsEntrance] = useState(true)
 
   const maxLayer = children.length - 1
 
@@ -27,17 +29,28 @@ export const Scene = ({ children, sceneRef }) => {
     }
   }, [wheelFired])
 
+  const handleEntrance = () => {
+    const ANIMATION_DELAY = 6500
+    setTimeout(() => {
+      setIsEntrance(false)
+    }, ANIMATION_DELAY)
+  }
+
+  useEffect(() => {
+    handleEntrance()
+  }, [])
+
   const handleWheel = event => {
     event.preventDefault()
     event.stopPropagation()
     if (!wheelFired) {
       setWheelFired(true)
       // Scroll Up
-      if (event.deltaY > 0 && currentLayerIndex - 1 >= 0) {
+      if (event.deltaY < 0 && currentLayerIndex - 1 >= 0) {
         setCurrentLayerIndex(currentLayerIndex - 1)
       }
       // Scroll down
-      if (event.deltaY < 0 && currentLayerIndex + 1 <= maxLayer) {
+      if (event.deltaY > 0 && currentLayerIndex + 1 <= maxLayer) {
         setCurrentLayerIndex(currentLayerIndex + 1)
       }
     }
@@ -63,12 +76,12 @@ export const Scene = ({ children, sceneRef }) => {
   })
 
   return (
-    <>
-      <Background layer={currentLayerIndex} />
+    <main className={isEntrance ? "entrance-animation" : ""}>
+      <Background maxLayer={maxLayer} layer={currentLayerIndex} />
       <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
         {children}
       </div>
-    </>
+    </main>
   )
 }
 
