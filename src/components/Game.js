@@ -446,10 +446,10 @@ const Game = () => {
           </button>
         </div>
         <div className="game-menu" ref={gameMenu}>
-          <div class="game-controls-indicator-mobile">
+          <div className="game-controls-indicator-mobile">
             <p>Tap on right {"&"} left to move</p>
           </div>
-          <div class="game-controls-indicator-desktop">
+          <div className="game-controls-indicator-desktop">
             <p>
               Use
               <LeftArrowIcon />
