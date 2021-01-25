@@ -20,10 +20,61 @@ export const Scene = ({ children, sceneRef }) => {
   const [wheelFired, setWheelFired] = useState(false)
   const [isEntrance, setIsEntrance] = useState(true)
 
+  const [yPosition, setYPosition] = useState(50)
+  const [oldYPosition, setOldYPosition] = useState(50)
+
+  const [xPosition, setXPosition] = useState(50)
+  const [oldXPosition, setOldXPosition] = useState(50)
+
+  const [touchStartLocation, setTouchStartLocation] = useState({
+    xPosition: null,
+    yPosition: null,
+  })
+
+  const handleTouchStart = e => {
+    //touch start events give a list of touches for multiple fingers.
+    const firstTouchEvent = e.touches[0]
+    const location = {
+      xPosition: firstTouchEvent.clientX, //get where the touch happened
+      yPosition: firstTouchEvent.clientY,
+    }
+    setTouchStartLocation(location)
+  }
+
+  const handleTouchEnd = e => {
+    //on touch end, the fingers change to changedTouches
+    const firstTouchEvent = e.changedTouches[0]
+    const location = {
+      x: firstTouchEvent.clientX, //get the location of the end of the touch
+      y: firstTouchEvent.clientY,
+    }
+    const differences = {
+      x: touchStartLocation.xPosition - location.x, //find the difference from the start to the end touch
+      y: touchStartLocation.yPosition - location.y,
+    }
+    const newYPosition = yPosition + -1 * differences.y * 0.05 //.05 to reduce the distance of the touch.
+    const newXPosition = xPosition + -1 * differences.x * 0.05
+
+    if (Math.abs(newXPosition - oldXPosition) < 2) {
+      // Scroll Up
+      if (newYPosition > oldYPosition && currentLayerIndex - 1 >= 0) {
+        setCurrentLayerIndex(currentLayerIndex - 1)
+      }
+      // Scroll down
+      if (newYPosition < oldYPosition && currentLayerIndex + 1 <= maxLayer) {
+        setCurrentLayerIndex(currentLayerIndex + 1)
+      }
+    }
+    setYPosition(newYPosition)
+    setOldYPosition(newYPosition)
+    setXPosition(newXPosition)
+    setOldXPosition(newXPosition)
+  }
+
   const maxLayer = children.length - 1
 
   useEffect(() => {
-    const resetWheelFired = setTimeout(() => setWheelFired(false), 600)
+    const resetWheelFired = setTimeout(() => setWheelFired(false), 700)
     return () => {
       clearTimeout(resetWheelFired)
     }
@@ -76,7 +127,11 @@ export const Scene = ({ children, sceneRef }) => {
   })
 
   return (
-    <main className={`main ${isEntrance ? "entrance-animation" : ""}`}>
+    <main
+      className={`main ${isEntrance ? "entrance-animation" : ""}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <Background maxLayer={maxLayer} layer={currentLayerIndex} />
       <div ref={sceneRef} className="scene" onWheel={e => handleWheel(e)}>
         {children}
