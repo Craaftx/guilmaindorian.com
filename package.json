@@ -16,9 +16,13 @@
     "gatsby-plugin-sharp": "^2.6.42",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-transformer-sharp": "^2.5.17",
+    "i18next": "^19.8.4",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "i18next-xhr-backend": "^3.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^11.8.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "4.0.0",

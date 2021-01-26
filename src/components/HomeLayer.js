@@ -1,6 +1,9 @@
 import React from "react"
+import { Trans } from "react-i18next"
+import { useTranslation } from "react-i18next"
 
 const HomeLayer = () => {
+  const { t } = useTranslation()
   return (
     <div className="home-layer with-perspective-layer">
       <div className="perspective-scene">
@@ -94,15 +97,14 @@ const HomeLayer = () => {
       </div>
       <div className="content">
         <h1 className="big-title">
-          Hello I'm <span className="stroked">Dorian</span> & I create things
-          with <span className="stroked">CSS</span>
+          <Trans i18nKey="HomeLayer.TitlePart1">
+            Hello I'm <strong>Dorian</strong>
+          </Trans>{" "}
+          <Trans i18nKey="HomeLayer.TitlePart2">
+            and I create things with <strong>CSS</strong>
+          </Trans>
         </h1>
-        <p>
-          My name is Dorian I am a 23 year old web developer who mainly codes in
-          Javascript, I like to create funny things with CSS and I also do web
-          design. I always try to improve my skills and I have tons of new ideas
-          everyday in my head so I spend a lot of time creating new projects
-        </p>
+        <p>{t("HomeLayer.Description")}</p>
       </div>
     </div>
   )

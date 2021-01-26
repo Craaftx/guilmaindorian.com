@@ -24,6 +24,17 @@ main {
   @media (max-width: 560px) {
     font-size: 2.5rem;
   }
+  strong {
+    -webkit-text-stroke: 2px $primary-color;
+    text-stroke: 2px $primary-color;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    color: $primary-color;
+    @media (max-width: 560px) {
+      -webkit-text-stroke: 1px $primary-color;
+      text-stroke: 1px $primary-color;
+    }
+  }
 }
 
 .title {
