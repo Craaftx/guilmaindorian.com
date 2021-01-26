@@ -17,26 +17,33 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
+    opacity: 0;
     transition: 500ms;
     transition-timing-function: ease-in;
-    &.previous {
-      transform: translateZ(-100vh) rotate(-5deg);
-      display: flex;
-      opacity: 0;
+
+    pointer-events: none;
+    animation-play-state: paused;
+    & * {
       pointer-events: none;
       animation-play-state: paused;
     }
+
+    &.previous {
+      transform: translateZ(-100vh) rotate(-5deg);
+    }
     &.active {
-      display: flex;
       opacity: 1;
+      transform: translateZ(0) rotate(0deg);
+      pointer-events: auto;
+      animation-play-state: running;
+      & * {
+        pointer-events: auto;
+        animation-play-state: running;
+      }
     }
     &.next {
       transform: translateZ(100vh) rotate(5deg);
-      display: flex;
-      opacity: 0;
-      pointer-events: none;
-      animation-play-state: paused;
     }
   }
 }
